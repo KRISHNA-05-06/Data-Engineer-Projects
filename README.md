@@ -3,7 +3,7 @@
 **Data & AI Engineer** | Python · PySpark · Kafka · Snowflake · AWS · dbt | Building AI-Integrated Data Pipelines | MS CS @ USF
 
 📍 Tampa, FL (Open to Relocate)  
-📧 srikrishnasaikota1@gmail.com  
+📧 srikrishnasaikota@gmail.com  
 🔗 [LinkedIn](https://linkedin.com/in/srikrishnasai/) · [GitHub](https://github.com/KRISHNA-05-06)
 
 ---
