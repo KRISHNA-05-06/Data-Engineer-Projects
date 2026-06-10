@@ -150,6 +150,7 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 - Claude with Amazon Bedrock
 - Claude with Google Cloud Vertex AI
 - Introduction to Model Context Protocol (MCP)
+- Dataquest Data Engineer Certification
 
 ---
 
