@@ -1,5 +1,3 @@
-# Data-Engineer-Projects
-
 # 👋 Hi, I'm Sri Krishna Sai Kota
 
 **Data & AI Engineer** | Python · PySpark · Kafka · Snowflake · AWS · dbt | Building AI-Integrated Data Pipelines | MS CS @ USF
