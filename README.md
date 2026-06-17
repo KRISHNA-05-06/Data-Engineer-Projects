@@ -3,7 +3,7 @@
 **Data & AI Engineer** | Python · PySpark · Kafka · Snowflake · AWS · dbt | Building AI-Integrated Data Pipelines | MS CS @ USF
 
 📍 Tampa, FL (Open to Relocate)  
-📧 srikrishnasaikota@gmail.com  
+📧 srikrishnasaikota1@gmail.com  
 🔗 [LinkedIn](https://linkedin.com/in/srikrishnasai/) · [GitHub](https://github.com/KRISHNA-05-06)
 
 ---
@@ -36,7 +36,29 @@ A fully containerized, end-to-end real-time streaming pipeline that ingests high
 
 ---
 
-### 2. 🤖 AI-Powered Job Scraping & Alert System
+### 2. ✈️ Production Airflow ETL Pipelines
+**[→ View Repository](https://github.com/KRISHNA-05-06/airflow_dags)**
+
+Two production-grade Apache Airflow ETL pipelines built with Docker, MySQL, git-sync auto-deployment, and GitHub Actions CI/CD — mirroring real-world data engineering team workflows.
+
+| Detail | Value |
+|---|---|
+| **Pipelines** | Daily Market Data ETL + Books Data ETL |
+| **Books Extracted** | 50 real titles via Open Library API |
+| **DAG Deployment** | Automatic via git-sync (every 30s) |
+| **CI/CD** | GitHub Actions DAG validation on every push |
+
+**Tech Stack:**  
+`Apache Airflow 3.0` `Docker` `MySQL` `git-sync` `GitHub Actions` `Python` `Open Library API` `XCom`
+
+**Highlights:**
+- Built a multi-region market data pipeline using Airflow's dynamic task mapping with `.expand()`, running 4 parallel Extract → Transform → Load chains simultaneously
+- Extracted 50 real data engineering books via Open Library API, applying type conversion, deduplication, and timestamp enrichment before loading into MySQL with a truncate-and-insert idempotency pattern
+- Configured git-sync sidecar container for automatic DAG deployment from GitHub every 30 seconds, eliminating manual restarts; added GitHub Actions CI to validate all DAG syntax before deployment
+
+---
+
+### 3. 🤖 AI-Powered Job Scraping & Alert System
 **[→ View Repository](https://github.com/KRISHNA-05-06/ai-job-hunter)**
 
 An automated multi-platform job intelligence system that scrapes job postings 5x daily, scores them with AI, and delivers personalized HTML email alerts — without requiring a laptop to be running.
@@ -58,7 +80,7 @@ An automated multi-platform job intelligence system that scrapes job postings 5x
 
 ---
 
-### 3. ⚡ PySpark ETL Pipeline Optimization
+### 4. ⚡ PySpark ETL Pipeline Optimization
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline-Optimization)**
 
 A hands-on performance tuning project that diagnoses and resolves real bottlenecks in a PySpark ETL pipeline — achieving a 61% runtime reduction using systematic optimization techniques.
@@ -80,7 +102,7 @@ A hands-on performance tuning project that diagnoses and resolves real bottlenec
 
 ---
 
-### 4. 🛒 Grocery ETL Pipeline (PySpark)
+### 5. 🛒 Grocery ETL Pipeline (PySpark)
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline)**
 
 A complete Extract-Transform-Load pipeline built with PySpark that ingests messy, multi-source sales data and produces clean, analytics-ready output — handling real-world data quality issues end to end.
@@ -102,7 +124,7 @@ A complete Extract-Transform-Load pipeline built with PySpark that ingests messy
 
 ---
 
-### 5. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
+### 6. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
 **[→ View Repository](https://github.com/KRISHNA-05-06/python-postgres-etl-pipeline)**
 
 A production-style ETL demo showcasing Docker best practices — multi-stage builds, health checks, non-root users, and environment-based config — containerizing a Python-to-PostgreSQL data pipeline.
