@@ -80,7 +80,29 @@ A production-grade cloud deployment that takes Apache Airflow from a local Docke
 
 ---
 
-### 4. 🤖 AI-Powered Job Scraping & Alert System
+### 4. ☁️ Airflow on GCP Compute Engine (Multi-Cloud Deployment)
+**[→ View Repository](https://github.com/KRISHNA-05-06/airflow-gcp-deployment)**
+
+The GCP counterpart to the AWS deployment above — the same Airflow ETL pipeline deployed with a deliberately different architecture: a single Compute Engine VM running docker-compose, with output to Google Cloud Storage. Demonstrates portable Airflow/Docker skills across two clouds.
+
+| Detail | Value |
+|---|---|
+| **Compute** | GCP Compute Engine VM (Ubuntu 24.04 LTS, e2-medium) |
+| **Metadata Store** | PostgreSQL (containerized) |
+| **Auth** | Service account via metadata server (no key files) |
+| **Pipeline Output** | Transformed CSV → Google Cloud Storage |
+
+**Tech Stack:**  
+`Apache Airflow 3.0` `GCP Compute Engine` `Google Cloud Storage` `Docker` `Docker Compose` `Python` `gcloud CLI`
+
+**Highlights:**
+- Deployed all four Airflow components plus PostgreSQL as containers on a single Compute Engine VM via docker-compose, exposing the UI through a firewall-restricted port and persisting output to a GCS bucket
+- Implemented keyless GCS authentication using the VM's attached service account through the metadata server, avoiding service-account key files entirely
+- Tuned the Airflow 3 API server to a single Uvicorn worker to prevent a memory-driven crash loop on the 4 GB VM, and contrasted the VM-based architecture against the managed AWS ECS approach
+
+---
+
+### 5. 🤖 AI-Powered Job Scraping & Alert System
 **[→ View Repository](https://github.com/KRISHNA-05-06/ai-job-hunter)**
 
 An automated multi-platform job intelligence system that scrapes job postings 5x daily, scores them with AI, and delivers personalized HTML email alerts — without requiring a laptop to be running.
@@ -102,7 +124,7 @@ An automated multi-platform job intelligence system that scrapes job postings 5x
 
 ---
 
-### 5. ⚡ PySpark ETL Pipeline Optimization
+### 6. ⚡ PySpark ETL Pipeline Optimization
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline-Optimization)**
 
 A hands-on performance tuning project that diagnoses and resolves real bottlenecks in a PySpark ETL pipeline — achieving a 61% runtime reduction using systematic optimization techniques.
@@ -124,7 +146,7 @@ A hands-on performance tuning project that diagnoses and resolves real bottlenec
 
 ---
 
-### 6. 🛒 Grocery ETL Pipeline (PySpark)
+### 7. 🛒 Grocery ETL Pipeline (PySpark)
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline)**
 
 A complete Extract-Transform-Load pipeline built with PySpark that ingests messy, multi-source sales data and produces clean, analytics-ready output — handling real-world data quality issues end to end.
@@ -146,7 +168,7 @@ A complete Extract-Transform-Load pipeline built with PySpark that ingests messy
 
 ---
 
-### 7. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
+### 8. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
 **[→ View Repository](https://github.com/KRISHNA-05-06/python-postgres-etl-pipeline)**
 
 A production-style ETL demo showcasing Docker best practices — multi-stage builds, health checks, non-root users, and environment-based config — containerizing a Python-to-PostgreSQL data pipeline.
@@ -176,7 +198,7 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 | **Streaming** | Apache Kafka, Kafka Streams |
 | **Data Warehousing** | Snowflake, ClickHouse, Redshift |
 | **Big Data** | PySpark, Hadoop |
-| **Cloud** | AWS (S3, ECS Fargate, ECR, RDS, Glue, Lambda, EC2, EMR), GCP |
+| **Cloud** | AWS (S3, ECS Fargate, ECR, RDS, Glue, Lambda, EC2, EMR), GCP (Compute Engine, Cloud Storage, IAM) |
 | **Orchestration** | Apache Airflow, dbt |
 | **ML / AI** | Scikit-learn, Isolation Forest, LLM APIs, Hugging Face |
 | **DevOps** | Docker, GitHub Actions, CI/CD |
