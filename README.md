@@ -209,6 +209,7 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 ## 🎓 Education & Certifications
 
 **M.S. Computer Science** — University of South Florida (May 2026)
+**B.Tech. Computer Science** — R.V.R & J.C College of Engineering (May 2024)
 
 **Certifications (Anthropic / Skilljar):**
 - Building with the Claude API
@@ -221,7 +222,7 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 
 ## 💼 Experience Snapshot
 
-**Data Engineer — Prospect Infosystem Inc.** *(May 2019 – Jul 2024)*  
+**Data Engineer — Prospect Infosystem Inc.** *(May 2021 – Jul 2024)*  
 Client: DBS Bank (banking / financial services). Designed and implemented scalable ETL pipelines on AWS (S3, Glue, Spark, Redshift, Athena) processing 200M+ financial records daily, orchestrated 100+ ETL jobs with Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive-based dimensional data marts for regulatory and analytical reporting.
 
 ---
