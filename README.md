@@ -10,11 +10,34 @@
 
 ## 🗂️ Data Engineering Projects
 
-A curated collection of production-grade data engineering and AI/ML pipeline projects. Each project is built with real-world scale, observability, and CI/CD in mind.
+A curated collection of production-grade data engineering and AI/ML pipeline projects spanning streaming, cloud, healthcare, and LLM integration. Each project is built with real-world scale, observability, and CI/CD in mind.
 
 ---
 
-### 1. 🔴 Real-Time AI Event Intelligence Pipeline
+### 1. 🏥 Oncology Clinical-Notes Extraction Pipeline (Claude + Airflow + Snowflake + dbt)
+**[→ View Repository](https://github.com/KRISHNA-05-06/oncology-notes-extraction)**
+
+An end-to-end healthcare data engineering pipeline that turns unstructured oncology clinical notes into governed, analytics-ready structured data. Notes are de-identified (HIPAA Safe Harbor), abstracted into a fixed schema using the Claude API, quality-gated, and modeled in Snowflake with dbt — benchmarked against a rule-based NLP baseline so every accuracy claim is measured.
+
+| Detail | Value |
+|---|---|
+| **Claude micro-F1** | 0.908 (vs 0.884 rule-based baseline) |
+| **Biomarker extraction F1** | 1.000 (vs 0.526 baseline) |
+| **PHI Redaction** | 2.6 identifiers/note scrubbed pre-extraction |
+| **Architecture** | Generate → De-identify → Extract (Claude + baseline) → DQ Gate → Snowflake → dbt |
+
+**Tech Stack:**  
+`Anthropic Claude API` `Apache Airflow` `Snowflake` `dbt` `Python` `PyYAML` `ICD-O-3` `HIPAA Safe Harbor`
+
+**Highlights:**
+- Abstracts free-text oncology notes into structured JSON (diagnosis, TNM stage, biomarkers, medications, ECOG status) using the Claude API, achieving micro-F1 of 0.908 vs 0.884 for a rule-based baseline
+- Demonstrates LLM lift on non-formulaic clinical phrasing — biomarker extraction F1 of 1.000 vs 0.526, correctly parsing variants like `HER2 3+` and `EGFR exon 19 deletion` that regex misses
+- Enforces HIPAA Safe Harbor de-identification as a hard gate before extraction, plus a data-quality gate asserting site fill-rate, valid AJCC stages, and zero PHI leakage before load
+- Standardizes primary sites to ICD-O-3 registry codes via a dbt seed join, with Snowflake VARIANT landing flattened into cohort-ready analytics marts
+
+---
+
+### 2. 🔴 Real-Time AI Event Intelligence Pipeline
 **[→ View Repository](https://github.com/KRISHNA-05-06/realtime-ai-pipeline)**
 
 A fully containerized, end-to-end real-time streaming pipeline that ingests high-volume events, detects anomalies with ML, and classifies intent using LLMs — all running across 13 Docker services.
@@ -36,7 +59,7 @@ A fully containerized, end-to-end real-time streaming pipeline that ingests high
 
 ---
 
-### 2. ✈️ Production Airflow ETL Pipelines
+### 3. ✈️ Production Airflow ETL Pipelines
 **[→ View Repository](https://github.com/KRISHNA-05-06/airflow_dags)**
 
 Two production-grade Apache Airflow ETL pipelines built with Docker, MySQL, git-sync auto-deployment, and GitHub Actions CI/CD — mirroring real-world data engineering team workflows.
@@ -58,7 +81,7 @@ Two production-grade Apache Airflow ETL pipelines built with Docker, MySQL, git-
 
 ---
 
-### 3. ☁️ Airflow on AWS ECS Fargate (Cloud Deployment)
+### 4. ☁️ Airflow on AWS ECS Fargate (Cloud Deployment)
 **[→ View Repository](https://github.com/KRISHNA-05-06/airflow-aws-deployment)**
 
 A production-grade cloud deployment that takes Apache Airflow from a local Docker setup to a fully serverless, cloud-native orchestration system on AWS — custom image, managed metadata store, load-balanced UI, and S3 output.
@@ -80,7 +103,7 @@ A production-grade cloud deployment that takes Apache Airflow from a local Docke
 
 ---
 
-### 4. ☁️ Airflow on GCP Compute Engine (Multi-Cloud Deployment)
+### 5. ☁️ Airflow on GCP Compute Engine (Multi-Cloud Deployment)
 **[→ View Repository](https://github.com/KRISHNA-05-06/airflow-gcp-deployment)**
 
 The GCP counterpart to the AWS deployment above — the same Airflow ETL pipeline deployed with a deliberately different architecture: a single Compute Engine VM running docker-compose, with output to Google Cloud Storage. Demonstrates portable Airflow/Docker skills across two clouds.
@@ -102,7 +125,7 @@ The GCP counterpart to the AWS deployment above — the same Airflow ETL pipelin
 
 ---
 
-### 5. 🤖 AI-Powered Job Scraping & Alert System
+### 6. 🤖 AI-Powered Job Scraping & Alert System
 **[→ View Repository](https://github.com/KRISHNA-05-06/ai-job-hunter)**
 
 An automated multi-platform job intelligence system that scrapes job postings 5x daily, scores them with AI, and delivers personalized HTML email alerts — without requiring a laptop to be running.
@@ -124,7 +147,7 @@ An automated multi-platform job intelligence system that scrapes job postings 5x
 
 ---
 
-### 6. ⚡ PySpark ETL Pipeline Optimization
+### 7. ⚡ PySpark ETL Pipeline Optimization
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline-Optimization)**
 
 A hands-on performance tuning project that diagnoses and resolves real bottlenecks in a PySpark ETL pipeline — achieving a 61% runtime reduction using systematic optimization techniques.
@@ -146,7 +169,7 @@ A hands-on performance tuning project that diagnoses and resolves real bottlenec
 
 ---
 
-### 7. 🛒 Grocery ETL Pipeline (PySpark)
+### 8. 🛒 Grocery ETL Pipeline (PySpark)
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline)**
 
 A complete Extract-Transform-Load pipeline built with PySpark that ingests messy, multi-source sales data and produces clean, analytics-ready output — handling real-world data quality issues end to end.
@@ -168,7 +191,7 @@ A complete Extract-Transform-Load pipeline built with PySpark that ingests messy
 
 ---
 
-### 8. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
+### 9. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
 **[→ View Repository](https://github.com/KRISHNA-05-06/python-postgres-etl-pipeline)**
 
 A production-style ETL demo showcasing Docker best practices — multi-stage builds, health checks, non-root users, and environment-based config — containerizing a Python-to-PostgreSQL data pipeline.
@@ -200,7 +223,7 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 | **Big Data** | PySpark, Hadoop |
 | **Cloud** | AWS (S3, ECS Fargate, ECR, RDS, Glue, Lambda, EC2, EMR), GCP (Compute Engine, Cloud Storage, IAM) |
 | **Orchestration** | Apache Airflow, dbt |
-| **ML / AI** | Scikit-learn, Isolation Forest, LLM APIs, Hugging Face |
+| **ML / AI** | Claude API, LLM Structured Extraction, Scikit-learn, Isolation Forest, Hugging Face |
 | **DevOps** | Docker, GitHub Actions, CI/CD |
 | **Databases** | PostgreSQL, MySQL, MongoDB |
 
