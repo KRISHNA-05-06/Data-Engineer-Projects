@@ -14,7 +14,30 @@ A curated collection of production-grade data engineering and AI/ML pipeline pro
 
 ---
 
-### 1. 🏥 Oncology Clinical-Notes Extraction Pipeline (Claude + Airflow + Snowflake + dbt)
+### 1. 🌊 OncoLake — Snowflake Clinical Research Data Platform
+**[→ View Repository](https://github.com/KRISHNA-05-06/oncolake)**
+
+A HIPAA-aware, Snowflake-native data platform built on fully synthetic oncology data. It ingests clinical data through multiple paths (Matillion ELT, Snowpipe auto-ingest, and semi-structured JSON), extracts structured fields from free-text clinical notes with an LLM, models the result into governed dimensional marts with dbt (including an SCD Type 2 patient dimension), and surfaces cohort metrics in a Streamlit-in-Snowflake app. Built on the same engineering principles as Moffitt Cancer Center's published clinical data platform — same architecture, applied to synthetic data.
+
+| Detail | Value |
+|---|---|
+| **Ingestion paths** | Snowpipe (event-driven) + Matillion (orchestrated) into one warehouse |
+| **Modeling** | dbt staging + marts, SCD Type 2 patient dimension, 5/5 data-quality tests passing |
+| **LLM extraction** | Stage, site, and treatment abstracted from clinical notes (Claude API; Cortex-native version included) |
+| **Architecture** | Multi-source → RAW → STAGING (LLM + DQ gate) → dbt marts (SCD2) → Streamlit cohort explorer |
+
+**Tech Stack:**  
+`Snowflake` `Matillion` `Snowpipe` `dbt` `AWS (S3, SQS, Lambda, Secrets Manager, IAM)` `Anthropic Claude API` `Snowflake Cortex` `Streamlit-in-Snowflake` `Apache Airflow` `GitHub Actions`
+
+**Highlights:**
+- Wired event-driven ingestion end to end — S3 object-create → SQS → Snowpipe auto-load — including the Snowflake–AWS IAM storage-integration handshake, and built a parallel Matillion ELT path (orchestration + transformation jobs) so the same data lands two ways with each path's lineage visible
+- Ran LLM extraction over free-text clinical notes into schema-conformant JSON, then modeled it in dbt into a cohort data mart with an SCD Type 2 patient dimension that preserves stage progression over time
+- Enforced HIPAA-aware data quality with dbt tests (not-null keys, unique diagnosis IDs, valid AJCC stages) and surfaced cohort metrics and fill-rate checks in a native Streamlit-in-Snowflake explorer
+- Documented an evidence-backed query-tuning finding on when Snowflake clustering helps versus hurts (low vs. high cardinality, reclustering cost), read directly from the Query Profile
+
+---
+
+### 2. 🏥 Oncology Clinical-Notes Extraction Pipeline (Claude + Airflow + Snowflake + dbt)
 **[→ View Repository](https://github.com/KRISHNA-05-06/oncology-notes-extraction)**
 
 An end-to-end healthcare data engineering pipeline that turns unstructured oncology clinical notes into governed, analytics-ready structured data. Notes are de-identified (HIPAA Safe Harbor), abstracted into a fixed schema using the Claude API, quality-gated, and modeled in Snowflake with dbt — benchmarked against a rule-based NLP baseline so every accuracy claim is measured.
@@ -37,7 +60,7 @@ An end-to-end healthcare data engineering pipeline that turns unstructured oncol
 
 ---
 
-### 2. 🔴 Real-Time AI Event Intelligence Pipeline
+### 3. 🔴 Real-Time AI Event Intelligence Pipeline
 **[→ View Repository](https://github.com/KRISHNA-05-06/realtime-ai-pipeline)**
 
 A fully containerized, end-to-end real-time streaming pipeline that ingests high-volume events, detects anomalies with ML, and classifies intent using LLMs — all running across 13 Docker services.
@@ -59,7 +82,7 @@ A fully containerized, end-to-end real-time streaming pipeline that ingests high
 
 ---
 
-### 3. ✈️ Production Airflow ETL Pipelines
+### 4. ✈️ Production Airflow ETL Pipelines
 **[→ View Repository](https://github.com/KRISHNA-05-06/airflow_dags)**
 
 Two production-grade Apache Airflow ETL pipelines built with Docker, MySQL, git-sync auto-deployment, and GitHub Actions CI/CD — mirroring real-world data engineering team workflows.
@@ -81,7 +104,7 @@ Two production-grade Apache Airflow ETL pipelines built with Docker, MySQL, git-
 
 ---
 
-### 4. ☁️ Airflow on AWS ECS Fargate (Cloud Deployment)
+### 5. ☁️ Airflow on AWS ECS Fargate (Cloud Deployment)
 **[→ View Repository](https://github.com/KRISHNA-05-06/airflow-aws-deployment)**
 
 A production-grade cloud deployment that takes Apache Airflow from a local Docker setup to a fully serverless, cloud-native orchestration system on AWS — custom image, managed metadata store, load-balanced UI, and S3 output.
@@ -103,7 +126,7 @@ A production-grade cloud deployment that takes Apache Airflow from a local Docke
 
 ---
 
-### 5. ☁️ Airflow on GCP Compute Engine (Multi-Cloud Deployment)
+### 6. ☁️ Airflow on GCP Compute Engine (Multi-Cloud Deployment)
 **[→ View Repository](https://github.com/KRISHNA-05-06/airflow-gcp-deployment)**
 
 The GCP counterpart to the AWS deployment above — the same Airflow ETL pipeline deployed with a deliberately different architecture: a single Compute Engine VM running docker-compose, with output to Google Cloud Storage. Demonstrates portable Airflow/Docker skills across two clouds.
@@ -125,7 +148,7 @@ The GCP counterpart to the AWS deployment above — the same Airflow ETL pipelin
 
 ---
 
-### 6. 🤖 AI-Powered Job Scraping & Alert System
+### 7. 🤖 AI-Powered Job Scraping & Alert System
 **[→ View Repository](https://github.com/KRISHNA-05-06/ai-job-hunter)**
 
 An automated multi-platform job intelligence system that scrapes job postings 5x daily, scores them with AI, and delivers personalized HTML email alerts — without requiring a laptop to be running.
@@ -147,7 +170,7 @@ An automated multi-platform job intelligence system that scrapes job postings 5x
 
 ---
 
-### 7. ⚡ PySpark ETL Pipeline Optimization
+### 8. ⚡ PySpark ETL Pipeline Optimization
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline-Optimization)**
 
 A hands-on performance tuning project that diagnoses and resolves real bottlenecks in a PySpark ETL pipeline — achieving a 61% runtime reduction using systematic optimization techniques.
@@ -169,7 +192,7 @@ A hands-on performance tuning project that diagnoses and resolves real bottlenec
 
 ---
 
-### 8. 🛒 Grocery ETL Pipeline (PySpark)
+### 9. 🛒 Grocery ETL Pipeline (PySpark)
 **[→ View Repository](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline)**
 
 A complete Extract-Transform-Load pipeline built with PySpark that ingests messy, multi-source sales data and produces clean, analytics-ready output — handling real-world data quality issues end to end.
@@ -191,7 +214,7 @@ A complete Extract-Transform-Load pipeline built with PySpark that ingests messy
 
 ---
 
-### 9. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
+### 10. 🐳 Containerized ETL Pipeline (Docker + PostgreSQL)
 **[→ View Repository](https://github.com/KRISHNA-05-06/python-postgres-etl-pipeline)**
 
 A production-style ETL demo showcasing Docker best practices — multi-stage builds, health checks, non-root users, and environment-based config — containerizing a Python-to-PostgreSQL data pipeline.
@@ -221,9 +244,10 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 | **Streaming** | Apache Kafka, Kafka Streams |
 | **Data Warehousing** | Snowflake, ClickHouse, Redshift |
 | **Big Data** | PySpark, Hadoop |
-| **Cloud** | AWS (S3, ECS Fargate, ECR, RDS, Glue, Lambda, EC2, EMR), GCP (Compute Engine, Cloud Storage, IAM) |
+| **Cloud** | AWS (S3, ECS Fargate, ECR, RDS, Glue, Lambda, EC2, EMR, SQS, Secrets Manager), GCP (Compute Engine, Cloud Storage, IAM) |
+| **Ingestion & ELT** | Matillion, Snowpipe, Streams & Tasks |
 | **Orchestration** | Apache Airflow, dbt |
-| **ML / AI** | Claude API, LLM Structured Extraction, Scikit-learn, Isolation Forest, Hugging Face |
+| **ML / AI** | Claude API, Snowflake Cortex, LLM Structured Extraction, Scikit-learn, Isolation Forest, Hugging Face |
 | **DevOps** | Docker, GitHub Actions, CI/CD |
 | **Databases** | PostgreSQL, MySQL, MongoDB |
 
