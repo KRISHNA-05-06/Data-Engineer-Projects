@@ -17,7 +17,7 @@ A curated collection of production-grade data engineering and AI/ML pipeline pro
 ### 1. 🌊 OncoLake — Snowflake Clinical Research Data Platform
 **[→ View Repository](https://github.com/KRISHNA-05-06/oncolake)**
 
-A HIPAA-aware, Snowflake-native data platform built on fully synthetic oncology data. It ingests clinical data through multiple paths (Matillion ELT, Snowpipe auto-ingest, and semi-structured JSON), extracts structured fields from free-text clinical notes with an LLM, models the result into governed dimensional marts with dbt (including an SCD Type 2 patient dimension), and surfaces cohort metrics in a Streamlit-in-Snowflake app. Built on the same engineering principles as Moffitt Cancer Center's published clinical data platform — same architecture, applied to synthetic data.
+A HIPAA-aware, Snowflake-native data platform built on fully synthetic oncology data. It ingests clinical data through multiple paths (Matillion ELT, Snowpipe auto-ingest, and semi-structured JSON), extracts structured fields from free-text clinical notes with an LLM, models the result into governed dimensional marts with dbt (including an SCD Type 2 patient dimension), and surfaces cohort metrics in a Streamlit-in-Snowflake app.
 
 | Detail | Value |
 |---|---|
@@ -67,7 +67,7 @@ A fully containerized, end-to-end real-time streaming pipeline that ingests high
 
 | Detail | Value |
 |---|---|
-| **Events Processed** | 1.5M+ |
+| **Events Processed** | 1.56M+ |
 | **Anomaly Detection F1** | 0.896 (Isolation Forest) |
 | **CI/CD Tests** | 21/21 passing |
 | **Architecture** | Producer → Kafka → ClickHouse → Isolation Forest + LLM |
@@ -76,7 +76,7 @@ A fully containerized, end-to-end real-time streaming pipeline that ingests high
 `Apache Kafka` `ClickHouse` `Python` `Docker` `Isolation Forest` `LLM Intent Classification` `CI/CD` `GitHub Actions`
 
 **Highlights:**
-- Ingests and processes 1.5M+ events with sub-second latency using Kafka topics and consumer groups
+- Ingests and processes 1.56M+ events with sub-second latency using Kafka topics and consumer groups
 - Detects anomalies in real time using Isolation Forest (F1 = 0.896) and classifies event intent via LLM pipeline
 - Deployed across 13 Docker services with full CI/CD automation and 21/21 test coverage
 
@@ -255,8 +255,8 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 
 ## 🎓 Education & Certifications
 
-**M.S. Computer Science** — University of South Florida (May 2026)
-**B.Tech. Computer Science** — R.V.R & J.C College of Engineering (May 2024)
+**M.S. Computer Science** — University of South Florida (Aug 2024 – May 2026)
+**B.Tech. Computer Science** — R.V.R & J.C College of Engineering
 
 **Certifications (Anthropic / Skilljar):**
 - Building with the Claude API
@@ -269,8 +269,11 @@ A production-style ETL demo showcasing Docker best practices — multi-stage bui
 
 ## 💼 Experience Snapshot
 
-**Data Engineer — Prospect Infosystem Inc.** *(May 2021 – Jul 2024)*  
-Client: DBS Bank (banking / financial services). Designed and implemented scalable ETL pipelines on AWS (S3, Glue, Spark, Redshift, Athena) processing 200M+ financial records daily, orchestrated 100+ ETL jobs with Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive-based dimensional data marts for regulatory and analytical reporting.
+**Data Engineer — Kunosol Tech** *(Aug 2023 – Jul 2024)*  
+Led an on-premises-to-cloud data warehouse migration to AWS and Snowflake, cutting storage costs by 38% and query latency from 14 minutes to under 4. Built a clinical data lake on S3 with Matillion ETL across 12+ source systems, delivered enhancements on a Snowflake Enterprise Data Platform at 99.3% SLA, and ran DataOps automation that reduced incident detection time by 52%.
+
+**Data Engineer — W3Softech India Pvt Ltd** *(May 2021 – Aug 2023)*  
+Designed and implemented scalable ETL pipelines on AWS (S3, Glue, Spark, Redshift, Athena) processing 200M+ financial records daily and reducing job runtime by 30%, orchestrated 100+ ETL jobs with Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive-based dimensional data marts for regulatory and analytical reporting.
 
 ---
 
@@ -278,4 +281,4 @@ Client: DBS Bank (banking / financial services). Designed and implemented scalab
 
 ---
 
-*📬 Open to Data Engineer, AI Engineer, and ML Engineer roles. Feel free to reach out!*
+*📬 Open to Data Engineer, AI Engineer, and Analytics Engineer roles. Feel free to reach out!*
