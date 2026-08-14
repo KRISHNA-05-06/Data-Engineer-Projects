@@ -269,7 +269,7 @@ A production-style ETL demo showcasing Docker best practices - multi-stage build
 
 ## 💼 Experience Snapshot
 
-**Data Engineer - Kunosol Tech LLC** *(May 2025 – Present)*  
+**Data Engineer - University of South Florida - USF** *(December 2024 – May 2026)*  
 Led an on-premises-to-cloud data warehouse migration to AWS and Snowflake, cutting storage costs by 38% and query latency from 14 minutes to under 4. Built a clinical data lake on S3 with Matillion ETL across 12+ source systems, delivered enhancements on a Snowflake Enterprise Data Platform at 99.3% SLA, and ran DataOps automation that reduced incident detection time by 52%.
 
 **Data Engineer - W3Softech India Pvt Ltd** *(May 2021 – Jul 2024)*  
